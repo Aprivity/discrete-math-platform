@@ -27,12 +27,20 @@ export default function PracticePage() {
               </div>
               <h2 className="mt-6 text-2xl font-semibold text-[#2f2a24] dark:text-white">{category.label}</h2>
               <p className="mt-3 min-h-12 text-sm leading-6 text-[#6f665c] dark:text-slate-400">{category.description}</p>
-              <Link
-                href={`/practice/${category.slug}`}
-                className="mt-6 inline-flex w-full items-center justify-center rounded-lg border border-[rgba(190,170,140,0.24)] bg-[rgba(255,252,245,0.54)] px-4 py-3 text-sm font-semibold text-[#4b4238] transition group-hover:border-[rgba(201,166,107,0.42)] group-hover:bg-[rgba(255,244,214,0.7)] group-hover:shadow-[0_14px_34px_rgba(120,95,60,0.12)] dark:border-white/10 dark:bg-white/10 dark:text-white dark:group-hover:border-indigo-300/50 dark:group-hover:bg-indigo-400/20"
-              >
-                进入练习
-              </Link>
+              <div className="mt-6 grid gap-3 min-[360px]:grid-cols-2">
+                <Link
+                  href={category.knowledgeHref}
+                  className="inline-flex items-center justify-center rounded-lg border border-[rgba(190,170,140,0.24)] bg-[rgba(255,252,245,0.54)] px-4 py-3 text-sm font-semibold text-[#6f665c] transition hover:-translate-y-0.5 hover:border-[rgba(201,166,107,0.42)] hover:bg-[rgba(255,244,214,0.7)] hover:text-[#2f2a24] hover:shadow-[0_12px_28px_rgba(120,95,60,0.1)] dark:border-white/10 dark:bg-white/10 dark:text-slate-200 dark:hover:border-indigo-300/50 dark:hover:bg-white/15 dark:hover:text-white"
+                >
+                  知识点
+                </Link>
+                <Link
+                  href={category.practiceHref}
+                  className="inline-flex items-center justify-center rounded-lg border border-[rgba(201,166,107,0.32)] bg-gradient-to-r from-[#c9a66b] to-[#e8cfa3] px-4 py-3 text-sm font-semibold text-[#2f2a24] shadow-[0_14px_34px_rgba(120,95,60,0.14)] transition hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(120,95,60,0.18)] dark:border-indigo-300/30 dark:from-indigo-400 dark:to-fuchsia-300 dark:text-slate-950 dark:shadow-[0_0_30px_rgba(129,140,248,0.22)]"
+                >
+                  进入练习
+                </Link>
+              </div>
             </SurfaceCard>
           );
         })}

@@ -20,22 +20,34 @@ export type Question = {
 export const questionCategories: Array<{
   label: QuestionCategory;
   slug: string;
+  aliases: string[];
   description: string;
+  knowledgeHref: string;
+  practiceHref: string;
 }> = [
   {
     label: "集合",
-    slug: "sets",
+    slug: "set",
+    aliases: ["sets"],
     description: "集合相等、集合运算、幂集、笛卡尔积、基数与可数性。",
+    knowledgeHref: "/practice/set/knowledge",
+    practiceHref: "/practice/set",
   },
   {
     label: "关系",
-    slug: "relations",
+    slug: "relation",
+    aliases: ["relations"],
     description: "二元关系、关系性质、等价关系、偏序关系、Hasse 图与关系复合。",
+    knowledgeHref: "/practice/relation/knowledge",
+    practiceHref: "/practice/relation",
   },
   {
     label: "函数与映射",
-    slug: "functions",
+    slug: "function",
+    aliases: ["functions"],
     description: "映射、单射、满射、双射、复合映射、像集与映射数量。",
+    knowledgeHref: "/practice/function/knowledge",
+    practiceHref: "/practice/function",
   },
 ];
 
@@ -510,5 +522,5 @@ export function getQuestionsByCategory(category: QuestionCategory) {
 }
 
 export function getQuestionCategoryBySlug(slug: string) {
-  return questionCategories.find((category) => category.slug === slug);
+  return questionCategories.find((category) => category.slug === slug || category.aliases.includes(slug));
 }

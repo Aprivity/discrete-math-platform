@@ -11,9 +11,10 @@ type PracticeChapterPageProps = {
 };
 
 export function generateStaticParams() {
-  return questionCategories.map((category) => ({
-    chapter: category.slug,
-  }));
+  return questionCategories.flatMap((category) => [
+    { chapter: category.slug },
+    ...category.aliases.map((alias) => ({ chapter: alias })),
+  ]);
 }
 
 export default async function PracticeChapterPage({ params }: PracticeChapterPageProps) {
