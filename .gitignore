@@ -22,3 +22,5 @@ next-dev.err.log
 # system files
 .DS_Store
 Thumbs.db
+
+next-dev.out.log

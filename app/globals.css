@@ -1,6 +1,14 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
+  color-scheme: light;
+  --background: #faf7f0;
+  --foreground: #2f2a24;
+}
+
+.dark {
   color-scheme: dark;
   --background: #060817;
   --foreground: #eef2ff;
@@ -18,11 +26,19 @@ body {
   min-height: 100vh;
   margin: 0;
   background:
+    radial-gradient(circle at 18% 18%, rgba(255, 214, 165, 0.2), transparent 34rem),
+    radial-gradient(circle at 82% 12%, rgba(215, 190, 255, 0.14), transparent 36rem),
+    radial-gradient(circle at 50% 88%, rgba(255, 244, 214, 0.36), transparent 40rem),
+    linear-gradient(135deg, #faf7f0 0%, #f8f1e7 45%, #f4ebdd 100%);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+.dark body {
+  background:
     radial-gradient(circle at 12% 8%, rgba(99, 102, 241, 0.32), transparent 30rem),
     radial-gradient(circle at 84% 12%, rgba(168, 85, 247, 0.28), transparent 28rem),
     linear-gradient(135deg, #050713 0%, #0b1231 46%, #180b31 100%);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
 a {
@@ -31,6 +47,10 @@ a {
 }
 
 ::selection {
+  background: rgba(201, 166, 107, 0.35);
+}
+
+.dark ::selection {
   background: rgba(129, 140, 248, 0.45);
 }
 
@@ -39,9 +59,16 @@ a {
     "Microsoft YaHei", sans-serif;
   font-weight: 600;
   letter-spacing: 0.02em;
-  background: linear-gradient(135deg, #f8fafc 0%, #dbe7ff 45%, #c7bfff 100%);
+  background: linear-gradient(135deg, #2f2a24 0%, #7a6752 48%, #a8844f 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  text-shadow: 0 10px 34px rgba(120, 95, 60, 0.12);
+}
+
+.dark .apple-title {
+  background: linear-gradient(135deg, #f8fafc 0%, #dbe7ff 45%, #c7bfff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
   text-shadow: 0 8px 32px rgba(180, 190, 255, 0.18);
 }
