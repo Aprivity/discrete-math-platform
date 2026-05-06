@@ -9,7 +9,7 @@ export default function PracticePage() {
       <PageHeader
         eyebrow="Practice"
         title="章节练习"
-        description="按题库大类进入练习。当前已接入 PDF 中的集合、关系、函数与映射、命题逻辑、谓词逻辑题目，支持判断题、单选题和简答题作答。"
+        description="按题库大类进入练习。当前已接入集合、关系、函数与映射、逻辑、组合数学、图论、树与代数结构题目，支持判断题、单选题和简答题作答。"
       />
       <section className="mx-auto grid max-w-7xl gap-5 px-5 pb-20 sm:px-8 md:grid-cols-2 xl:grid-cols-3">
         {questionCategories.map((category, index) => {
