@@ -28,13 +28,14 @@ export default async function PracticeChapterPage({ params }: PracticeChapterPag
   const questions = getQuestionsByCategory(category.label);
   const judgeCount = questions.filter((question) => question.type === "judge").length;
   const singleCount = questions.filter((question) => question.type === "single").length;
+  const shortCount = questions.filter((question) => question.type === "short").length;
 
   return (
     <main>
       <PageHeader
         eyebrow="Question Bank"
         title={`${category.label}练习`}
-        description={`${category.description} 共 ${questions.length} 题，其中判断题 ${judgeCount} 题，单选题 ${singleCount} 题。`}
+        description={`${category.description} 共 ${questions.length} 题，其中判断题 ${judgeCount} 题，单选题 ${singleCount} 题，简答题 ${shortCount} 题。`}
       />
       <section className="mx-auto max-w-5xl px-5 pb-20 sm:px-8">
         <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
@@ -47,6 +48,7 @@ export default async function PracticeChapterPage({ params }: PracticeChapterPag
           <div className="flex flex-wrap gap-2 text-xs text-[#6f665c] dark:text-slate-300">
             <span className="rounded-full bg-[rgba(255,244,214,0.58)] px-3 py-1 dark:bg-indigo-300/15">判断题 {judgeCount}</span>
             <span className="rounded-full bg-[rgba(255,244,214,0.58)] px-3 py-1 dark:bg-indigo-300/15">单选题 {singleCount}</span>
+            <span className="rounded-full bg-[rgba(255,244,214,0.58)] px-3 py-1 dark:bg-indigo-300/15">简答题 {shortCount}</span>
           </div>
         </div>
         <QuestionPractice questions={questions} />
