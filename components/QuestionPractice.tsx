@@ -1,7 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Question } from "@/data/questions";
+import { getCurrentUser } from "@/lib/auth";
+import { addStudyRecord, GUEST_USER_ID } from "@/lib/study-records";
+import type { PublicUser } from "@/types/user";
 
 type QuestionPracticeProps = {
   questions: Question[];
@@ -15,26 +18,68 @@ const questionTypeLabels: Record<Question["type"], string> = {
   short: "简答题",
 };
 
+function createRecordId() {
+  if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
+    return crypto.randomUUID();
+  }
+
+  return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+}
+
 export function QuestionPractice({ questions }: QuestionPracticeProps) {
   const [selectedAnswers, setSelectedAnswers] = useState<SubmittedAnswers>({});
   const [submittedAnswers, setSubmittedAnswers] = useState<SubmittedAnswers>({});
+  const [currentUser, setCurrentUser] = useState<PublicUser | null>(null);
+
+  useEffect(() => {
+    const syncUser = () => {
+      setCurrentUser(getCurrentUser());
+    };
+
+    syncUser();
+    window.addEventListener("lisan-auth-change", syncUser);
+    window.addEventListener("storage", syncUser);
+
+    return () => {
+      window.removeEventListener("lisan-auth-change", syncUser);
+      window.removeEventListener("storage", syncUser);
+    };
+  }, []);
 
   const chooseAnswer = (questionId: string, answer: string) => {
     setSelectedAnswers((current) => ({ ...current, [questionId]: answer }));
   };
 
-  const submitAnswer = (questionId: string) => {
+  const submitAnswer = (question: Question) => {
+    const questionId = question.id;
     const selectedAnswer = selectedAnswers[questionId];
 
-    if (!selectedAnswer) {
+    if (!selectedAnswer?.trim()) {
       return;
     }
 
     setSubmittedAnswers((current) => ({ ...current, [questionId]: selectedAnswer }));
+    addStudyRecord({
+      id: createRecordId(),
+      userId: currentUser?.id ?? GUEST_USER_ID,
+      questionId,
+      category: question.category,
+      chapter: question.chapter,
+      type: question.type,
+      userAnswer: selectedAnswer,
+      correctAnswer: question.answer,
+      isCorrect: question.type === "short" ? null : selectedAnswer === question.answer,
+      answeredAt: new Date().toISOString(),
+    });
   };
 
   return (
     <div className="grid gap-5">
+      {!currentUser ? (
+        <div className="rounded-lg border border-[rgba(201,166,107,0.28)] bg-[rgba(255,244,214,0.48)] px-4 py-3 text-sm text-[#6f665c] dark:border-indigo-300/25 dark:bg-indigo-400/10 dark:text-slate-300">
+          登录后可长期保存学习统计和错题记录；当前练习会先保存到本机 guest 记录。
+        </div>
+      ) : null}
       {questions.map((question, index) => {
         const selectedAnswer = selectedAnswers[question.id];
         const submittedAnswer = submittedAnswers[question.id];
@@ -102,7 +147,7 @@ export function QuestionPractice({ questions }: QuestionPracticeProps) {
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <button
                 type="button"
-                onClick={() => submitAnswer(question.id)}
+                onClick={() => submitAnswer(question)}
                 disabled={!selectedAnswer?.trim()}
                 className="rounded-lg bg-gradient-to-r from-[#c9a66b] to-[#e8cfa3] px-5 py-3 text-sm font-semibold text-[#2f2a24] shadow-[0_16px_34px_rgba(120,95,60,0.18)] transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-none dark:bg-indigo-400 dark:text-slate-950 dark:shadow-[0_0_32px_rgba(129,140,248,0.25)]"
               >
