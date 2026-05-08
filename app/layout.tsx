@@ -15,8 +15,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aprivity Lisan | 离散数学期末刷题平台",
-  description: "Aprivity_ 离散数学期末刷题平台，面向章节练习、模拟考试、错题整理与学习统计。",
+  title: "Aprivity-离散刷题",
+  description: "离散数学期末刷题与练习平台",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({
