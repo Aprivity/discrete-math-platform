@@ -125,7 +125,7 @@ export function getPaperQuestions(paper: ExamPaper) {
 export function calculateExamResult(paper: ExamPaper, submittedAt: string): ExamResult {
   const paperQuestions = getPaperQuestions(paper);
   const answered = paperQuestions.filter((question) => Boolean(paper.answers[question.id]?.trim())).length;
-  const autoGradableQuestions = paperQuestions.filter((question) => question.type !== "short");
+  const autoGradableQuestions = paperQuestions.filter((question) => question.type !== "short" && question.answer.trim());
   const correct = autoGradableQuestions.filter((question) => paper.answers[question.id] === question.answer).length;
   const wrong = autoGradableQuestions.length - correct;
   const usedSeconds = Math.max(0, Math.round((new Date(submittedAt).getTime() - new Date(paper.startedAt).getTime()) / 1000));
@@ -154,7 +154,7 @@ function savePaperAnswersToStudyRecords(paper: ExamPaper, submittedAt: string) {
       type: question.type,
       userAnswer,
       correctAnswer: question.answer,
-      isCorrect: question.type === "short" ? null : userAnswer === question.answer,
+      isCorrect: question.type === "short" || !question.answer.trim() ? null : userAnswer === question.answer,
       answeredAt: submittedAt,
     };
 

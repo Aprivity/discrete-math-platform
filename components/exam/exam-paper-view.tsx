@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { MathText } from "@/components/MathText";
 import { SurfaceCard } from "@/components/SurfaceCard";
 import { ExamResult } from "@/components/exam/exam-result";
 import { ExamTimer } from "@/components/exam/exam-timer";
@@ -17,6 +18,22 @@ const questionTypeLabels: Record<string, string> = {
   single: "单选题",
   short: "简答题",
 };
+
+function getDisplayOptions(question: ReturnType<typeof getPaperQuestions>[number]) {
+  if (question.optionItems?.length) {
+    return question.optionItems.map((option) => ({
+      key: option.key,
+      value: option.key,
+      label: `${option.key} ${option.text}`,
+    }));
+  }
+
+  return (question.options ?? []).map((option) => ({
+    key: option,
+    value: question.type === "single" ? option.slice(0, 1) : option,
+    label: option,
+  }));
+}
 
 export function ExamPaperView({ paperId }: ExamPaperViewProps) {
   const [paper, setPaper] = useState<ExamPaper | null>(null);
@@ -143,7 +160,9 @@ export function ExamPaperView({ paperId }: ExamPaperViewProps) {
                 </span>
               </div>
 
-              <h3 className="mt-5 whitespace-pre-wrap text-xl font-semibold leading-8 text-[#2f2a24] dark:text-white">{question.title}</h3>
+              <h3 className="mt-5 whitespace-pre-wrap text-xl font-semibold leading-8 text-[#2f2a24] dark:text-white">
+                <MathText>{question.title}</MathText>
+              </h3>
 
               {isShortQuestion ? (
                 <textarea
@@ -155,13 +174,13 @@ export function ExamPaperView({ paperId }: ExamPaperViewProps) {
                 />
               ) : (
                 <div className="mt-5 grid gap-3">
-                  {(question.options ?? []).map((option) => {
-                    const value = question.type === "single" ? option.slice(0, 1) : option;
+                  {getDisplayOptions(question).map((option) => {
+                    const value = option.value;
                     const isSelected = selectedAnswer === value;
 
                     return (
                       <button
-                        key={option}
+                        key={option.key}
                         type="button"
                         onClick={() => updateAnswer(question.id, value)}
                         className={`rounded-lg border px-4 py-3 text-left text-sm leading-6 transition ${
@@ -170,7 +189,7 @@ export function ExamPaperView({ paperId }: ExamPaperViewProps) {
                             : "border-[rgba(190,170,140,0.2)] bg-[rgba(255,252,245,0.42)] text-[#4b4238] hover:border-[rgba(201,166,107,0.36)] hover:bg-[rgba(255,244,214,0.56)] dark:border-white/10 dark:bg-slate-950/25 dark:text-slate-300 dark:hover:border-indigo-300/40 dark:hover:bg-indigo-400/10"
                         }`}
                       >
-                        {option}
+                        <MathText>{option.label}</MathText>
                       </button>
                     );
                   })}

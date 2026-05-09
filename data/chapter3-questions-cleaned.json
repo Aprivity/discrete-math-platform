@@ -1,0 +1,1137 @@
+[
+  {
+    "id": 1,
+    "chapter": "第三章",
+    "type": "single-choice",
+    "question": "下面哪一组公式是不等价的？（）",
+    "options": [
+      {
+        "key": "A",
+        "text": "$\\neg (A \\to B),A \\wedge \\neg B$"
+      },
+      {
+        "key": "B",
+        "text": "$\\neg (A rightarrow B), (A \\wedge \\neg B) \\vee (\\neg A \\wedge B)$"
+      },
+      {
+        "key": "C",
+        "text": "$A \\to (B \\vee C), \\neg A \\wedge (B \\vee C)$"
+      },
+      {
+        "key": "D",
+        "text": "$A \\to (B \\vee C), (A \\wedge \\neg B) \\to C$"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test",
+    "formulas": [
+      {
+        "latex": "\\neg (A \\to B),A \\wedge \\neg B",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/19774929844ba8536c44c04d229f3d6c.png"
+      },
+      {
+        "latex": "\\neg (A rightarrow B), (A \\wedge \\neg B) \\vee (\\neg A \\wedge B)",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/e5ae79369fdeb3f4605667ac23a7d021.png"
+      },
+      {
+        "latex": "A \\to (B \\vee C), \\neg A \\wedge (B \\vee C)",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/0a91008e9230739aad851dd98c26a13f.png"
+      },
+      {
+        "latex": "A \\to (B \\vee C), (A \\wedge \\neg B) \\to C",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/d11ede7e003aa7b8cc17b67be20c3b94.png"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "chapter": "第三章",
+    "type": "single-choice",
+    "question": "命题公式 $G= (P \\to (P \\wedge Q)) \\vee R$ ，G的主析取范式中含有几个极小项？（）",
+    "options": [
+      {
+        "key": "A",
+        "text": "6"
+      },
+      {
+        "key": "B",
+        "text": "7"
+      },
+      {
+        "key": "C",
+        "text": "8"
+      },
+      {
+        "key": "D",
+        "text": "9"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test",
+    "formulas": [
+      {
+        "latex": "G= (P \\to (P \\wedge Q)) \\vee R",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/9c0543914c0b3a334f4e4678538037b4.png"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "chapter": "第三章",
+    "type": "single-choice",
+    "question": "设谓词公式 $G= \\exists x \\forall yP (x,y) \\vee \\exists y \\forall x \\neg P (x,y)$ ，I是G的一个解释： $D= \\{ a,b \\},$ $\\frac{{P (a,a) P (a,b) P (b,a) P (b,b) }}{{1\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }0\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }0\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }1\\text{ }}}$ 试确定公式G在I下的真值。 ()",
+    "options": [
+      {
+        "key": "A",
+        "text": "0"
+      },
+      {
+        "key": "B",
+        "text": "1"
+      },
+      {
+        "key": "C",
+        "text": "不确定"
+      },
+      {
+        "key": "D",
+        "text": "缺少条件，无法计算"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test",
+    "formulas": [
+      {
+        "latex": "G= \\exists x \\forall yP (x,y) \\vee \\exists y \\forall x \\neg P (x,y)",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/84169fd9fcba576d03de7f59f6d50bc3.png"
+      },
+      {
+        "latex": "D= \\{ a,b \\},",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/ab5a204ff79eeb10cd10e46c4d2d1b90.png"
+      },
+      {
+        "latex": "\\frac{{P (a,a) P (a,b) P (b,a) P (b,b) }}{{1\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }0\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }0\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }\\text{ }1\\text{ }}}",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/283b506cdca966209a0faa67612ffe82.png"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "chapter": "第三章",
+    "type": "single-choice",
+    "question": "下面哪个命题公式是恒真公式？（）",
+    "options": [
+      {
+        "key": "A",
+        "text": "$(\\neg P \\vee Q) \\wedge \\neg (\\neg P \\wedge \\neg Q)$"
+      },
+      {
+        "key": "B",
+        "text": "$P \\to (Q \\vee R)$"
+      },
+      {
+        "key": "C",
+        "text": "$(P \\to Q) rightarrow (\\neg P \\vee Q)$"
+      },
+      {
+        "key": "D",
+        "text": "$(P \\to Q) \\wedge (Q \\to P)$"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test",
+    "formulas": [
+      {
+        "latex": "(\\neg P \\vee Q) \\wedge \\neg (\\neg P \\wedge \\neg Q)",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/24122a9e0a96ffba4d8ace8b4e375196.png"
+      },
+      {
+        "latex": "P \\to (Q \\vee R)",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/cae923476468d6f61d4c419ba276af2e.png"
+      },
+      {
+        "latex": "(P \\to Q) rightarrow (\\neg P \\vee Q)",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/9af0018d74c0b20ca22b04c783b140fb.png"
+      },
+      {
+        "latex": "(P \\to Q) \\wedge (Q \\to P)",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/1dee7378272924e86e3d04b0a0898fe6.png"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "chapter": "第三章",
+    "type": "single-choice",
+    "question": "判定公式 $G= \\forall yP (f (y)) \\to \\exists xP (x)$ 的可满足性。（）",
+    "options": [
+      {
+        "key": "A",
+        "text": "不可满足"
+      },
+      {
+        "key": "B",
+        "text": "不确定"
+      },
+      {
+        "key": "C",
+        "text": "恒真"
+      },
+      {
+        "key": "D",
+        "text": "恒假"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test",
+    "formulas": [
+      {
+        "latex": "G= \\forall yP (f (y)) \\to \\exists xP (x)",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/5d908e7ed9feb63fc226c25169f1291b.png"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "chapter": "第三章",
+    "type": "single-choice",
+    "question": "关于P、Q、R的极小项m5是（）",
+    "options": [
+      {
+        "key": "A",
+        "text": "101"
+      },
+      {
+        "key": "B",
+        "text": "010"
+      },
+      {
+        "key": "C",
+        "text": "$\\neg P \\vee Q \\vee \\neg R$"
+      },
+      {
+        "key": "D",
+        "text": "$P \\wedge \\neg Q \\wedge R$"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test",
+    "formulas": [
+      {
+        "latex": "\\neg P \\vee Q \\vee \\neg R",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/5bcf0dbb37345647e9f80109a34374ad.png"
+      },
+      {
+        "latex": "P \\wedge \\neg Q \\wedge R",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/e39a7fd49487b9a7a48e52aa146e03aa.png"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "chapter": "第三章",
+    "type": "single-choice",
+    "question": "已知公式 $\\forall x (P (x) \\to Q)$ ，论域 $D= \\{ a,b \\}$ 。在固定论域D上讨论 $\\forall x (P (x) \\to Q)$ 所能蕴涵的所有公式有几个？（不增加新的命题符号和谓词符号，且等价的公式视为一个公式）",
+    "options": [
+      {
+        "key": "A",
+        "text": "2"
+      },
+      {
+        "key": "B",
+        "text": "3"
+      },
+      {
+        "key": "C",
+        "text": "$2^{3}$"
+      },
+      {
+        "key": "D",
+        "text": "$3^{2}$"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test",
+    "formulas": [
+      {
+        "latex": "\\forall x (P (x) \\to Q)",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/af0f203d28ede34e20a4be6356324791.png"
+      },
+      {
+        "latex": "D= \\{ a,b \\}",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/cff9fd7f0963750f06137ca05b47771f.png"
+      },
+      {
+        "latex": "\\forall x (P (x) \\to Q)",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/af0f203d28ede34e20a4be6356324791.png"
+      },
+      {
+        "latex": "2^{3}",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/6dcbbb6fc13fcd462fb10271409d067f.png"
+      },
+      {
+        "latex": "3^{2}",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/aa227bf2c55c876655fcea4ede0ea4f0.png"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "chapter": "第三章",
+    "type": "single-choice",
+    "question": "如下两公式 $G= \\forall x (P (x) \\vee Q (x))$ 与 $H= \\forall xP (x) \\vee \\exists xQ (x)$ 之间存在下列哪种关系?（）",
+    "options": [
+      {
+        "key": "A",
+        "text": "G与H等价"
+      },
+      {
+        "key": "B",
+        "text": "G蕴涵H"
+      },
+      {
+        "key": "C",
+        "text": "H蕴涵G"
+      },
+      {
+        "key": "D",
+        "text": "G不蕴涵H"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test",
+    "formulas": [
+      {
+        "latex": "G= \\forall x (P (x) \\vee Q (x))",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/2b69f96de41df81e2b8fca1135709a49.png"
+      },
+      {
+        "latex": "H= \\forall xP (x) \\vee \\exists xQ (x)",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/2c5af777c3b0c721db6fe7cad4ad2e3c.png"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "chapter": "第三章",
+    "type": "single-choice",
+    "question": "命题公式G是包含4个不同原子的恒假公式，则其主析取范式共包含多少个极小项？（）",
+    "options": [
+      {
+        "key": "A",
+        "text": "0"
+      },
+      {
+        "key": "B",
+        "text": "2"
+      },
+      {
+        "key": "C",
+        "text": "4"
+      },
+      {
+        "key": "D",
+        "text": "$2^{4}$"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test",
+    "formulas": [
+      {
+        "latex": "2^{4}",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/133a4ab83d13cc7d72da7c7820ad248f.png"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "chapter": "第三章",
+    "type": "single-choice",
+    "question": "给定前提集 $\\{ \\neg P \\vee \\neg Q \\vee S,P \\to Q,Q \\to R \\}$ ，利用形式演绎法证明这些前提共同蕴涵 $P \\to (S \\wedge R)$ ，以下哪项是正确的中间推理步骤？ ()",
+    "options": [
+      {
+        "key": "A",
+        "text": "假设 P 为真，则根据 $\\neg P \\vee \\neg Q \\vee S$ ，可以推出 S 为真。"
+      },
+      {
+        "key": "B",
+        "text": "假设 Q 为真，则根据 $P \\to S \\wedge R$ ，可以推出 P 也为真。"
+      },
+      {
+        "key": "C",
+        "text": "由 $Q \\to R$ 和 Q 为真，可以直接得出 R 也为真。"
+      },
+      {
+        "key": "D",
+        "text": "由于 $\\neg P \\vee \\neg Q \\vee S$ 为真，则 P、Q、S 中至少有一个为真。"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test",
+    "formulas": [
+      {
+        "latex": "\\{ \\neg P \\vee \\neg Q \\vee S,P \\to Q,Q \\to R \\}",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/29121ce53e02653b6b3c966bd527224d.png"
+      },
+      {
+        "latex": "P \\to (S \\wedge R)",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/ef6e18e3df7246df2c45377b822168b6.png"
+      },
+      {
+        "latex": "\\neg P \\vee \\neg Q \\vee S",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/30f0c553735f9c59e2442160136d80ca.png"
+      },
+      {
+        "latex": "P \\to S \\wedge R",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/b1d5c420945ddef13e0c9f58b82f4f97.png"
+      },
+      {
+        "latex": "Q \\to R",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/46b4afea805b0de6e17abb44a2f07527.png"
+      },
+      {
+        "latex": "\\neg P \\vee \\neg Q \\vee S",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/30f0c553735f9c59e2442160136d80ca.png"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "chapter": "第三章",
+    "type": "single-choice",
+    "question": "使用改名规则正确选项是： ()",
+    "options": [
+      {
+        "key": "A",
+        "text": "将公式 $\\forall x (P (x) \\wedge Q (x))$ 中的 $P (x)$ 替换为 $R (x)$ ，得到 $\\forall x (R (x) \\wedge Q (x))$ 。"
+      },
+      {
+        "key": "B",
+        "text": "将公式 $\\exists y (P (y) \\to Q (y))$ 中的 $Q (y)$ 替换为 $R (x)$ ，得到 $\\exists y (P (y) \\to R (x))$ 。"
+      },
+      {
+        "key": "C",
+        "text": "将公式 $\\forall x \\exists y (P (x,y) \\to Q (y,x))$ 中的 $y$ 替换为 $z$ ，得到 $\\forall x \\exists z (P (x,z) \\to Q (z,x))$ 。"
+      },
+      {
+        "key": "D",
+        "text": "将公式 $\\exists x (P (x) \\vee Q (x))$ 中的 $\\exists x$ 替换为 $\\forall x$ ，得到 $\\forall x (P (x) \\vee Q (x))$ 。"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test",
+    "formulas": [
+      {
+        "latex": "\\forall x (P (x) \\wedge Q (x))",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/a61cda500a01e912afd6b9224867c3b1.png"
+      },
+      {
+        "latex": "P (x)",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/0d447411c4d98746a397f10670ed4b69.png"
+      },
+      {
+        "latex": "R (x)",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/81523c1c5594a26c74af0ee2d967948c.png"
+      },
+      {
+        "latex": "\\forall x (R (x) \\wedge Q (x))",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/dba457f0f9e3193f554c72dddd14bf14.png"
+      },
+      {
+        "latex": "\\exists y (P (y) \\to Q (y))",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/deea1d872cf38977db3b510f0aec8e21.png"
+      },
+      {
+        "latex": "Q (y)",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/ade83d579a6106519585a479408e1ad1.png"
+      },
+      {
+        "latex": "R (x)",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/81523c1c5594a26c74af0ee2d967948c.png"
+      },
+      {
+        "latex": "\\exists y (P (y) \\to R (x))",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/624a4bfcdc4fe3004697915615b3853c.png"
+      },
+      {
+        "latex": "\\forall x \\exists y (P (x,y) \\to Q (y,x))",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/332f32c9b0d3145668001ff56f65de2a.png"
+      },
+      {
+        "latex": "y",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/a24de9e98a16760d6db1da64c6aa7427.png"
+      },
+      {
+        "latex": "z",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/7095b8445150c62c8a00c4694ebf24dd.png"
+      },
+      {
+        "latex": "\\forall x \\exists z (P (x,z) \\to Q (z,x))",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/1e61b85644e30fef588e893cfdd32ed7.png"
+      },
+      {
+        "latex": "\\exists x (P (x) \\vee Q (x))",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/99985cd0961dd273d37d38f49db31aac.png"
+      },
+      {
+        "latex": "\\exists x",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/dd9819ff243d481c9cd2559864d1e65f.png"
+      },
+      {
+        "latex": "\\forall x",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/d920ef89a93720d1309f11d4cdce5828.png"
+      },
+      {
+        "latex": "\\forall x (P (x) \\vee Q (x))",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/adcc8f1af2315ac5e2c5581548d24a38.png"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "chapter": "第三章",
+    "type": "single-choice",
+    "question": "以下哪个集合可以构成命题逻辑的一个联结词的完备集？ （）",
+    "options": [
+      {
+        "key": "A",
+        "text": "{ $\\neg$ （非）， $\\wedge$ （与）}"
+      },
+      {
+        "key": "B",
+        "text": "{ $\\neg$ （非）， $\\to$ （蕴含）， $rightarrow$ （等价）}"
+      },
+      {
+        "key": "C",
+        "text": "{ $\\neg$ （非）， $\\wedge$ （与）， $\\vee$ （或）}"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test",
+    "formulas": [
+      {
+        "latex": "\\neg",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/de398e703714902111c7c419a47a2394.png"
+      },
+      {
+        "latex": "\\wedge",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/9a85a1d4e448968ae02097a34245de8b.png"
+      },
+      {
+        "latex": "\\neg",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/de398e703714902111c7c419a47a2394.png"
+      },
+      {
+        "latex": "\\to",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/79b74d752f92cd0f66e909b07ef34e7c.png"
+      },
+      {
+        "latex": "rightarrow",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/c19bd27be7ce8980152d50fe7a359183.png"
+      },
+      {
+        "latex": "\\neg",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/de398e703714902111c7c419a47a2394.png"
+      },
+      {
+        "latex": "\\wedge",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/9a85a1d4e448968ae02097a34245de8b.png"
+      },
+      {
+        "latex": "\\vee",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/51ba1d328bc494725a0f23654d82fb40.png"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "chapter": "第三章",
+    "type": "single-choice",
+    "question": "设F和G是两个只含有一个自由变量x的公式，下列正确的是：（）",
+    "options": [
+      {
+        "key": "A",
+        "text": "$\\forall xF (x) \\vee \\forall xG (x)$ 等价于 $\\forall x (F (x) \\vee G (x))$"
+      },
+      {
+        "key": "B",
+        "text": "$\\exists xF (x) \\wedge \\exists xG (x)$ 等价于 $\\exists x (F (x) \\wedge G (x))$"
+      },
+      {
+        "key": "C",
+        "text": "$\\forall xF (x) \\wedge \\forall xG (x)$ 等价于 $\\forall x \\forall y (F (x) \\wedge G (y))$"
+      },
+      {
+        "key": "D",
+        "text": "$\\exists xF (x) \\vee \\forall xG (x)$ 等价于 $\\exists x (F (x) \\vee G (x))$"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test",
+    "formulas": [
+      {
+        "latex": "\\forall xF (x) \\vee \\forall xG (x)",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/f280aabd5987db59c6a4d4d165a16665.png"
+      },
+      {
+        "latex": "\\forall x (F (x) \\vee G (x))",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/f0d8420d63c19b6cfcaaea08ac9791da.png"
+      },
+      {
+        "latex": "\\exists xF (x) \\wedge \\exists xG (x)",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/e6f101b7ed4dfcdd21589317e430c223.png"
+      },
+      {
+        "latex": "\\exists x (F (x) \\wedge G (x))",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/2eb3a306fd89831580f932b7dabfd738.png"
+      },
+      {
+        "latex": "\\forall xF (x) \\wedge \\forall xG (x)",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/a8df8ec2d252eaad7b1ee2423b16a31f.png"
+      },
+      {
+        "latex": "\\forall x \\forall y (F (x) \\wedge G (y))",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/d7d2b9b200d7d7ee73dbf4e90f299288.png"
+      },
+      {
+        "latex": "\\exists xF (x) \\vee \\forall xG (x)",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/06b086b6279e1cf96000c7b4983387eb.png"
+      },
+      {
+        "latex": "\\exists x (F (x) \\vee G (x))",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/a5202b18751b632807658982cbe421be.png"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "chapter": "第三章",
+    "type": "single-choice",
+    "question": "前束范式 $\\forall x \\exists y \\forall z (\\neg P (x,y) \\vee Q (z,y))$ 对应的Skolem范式是: ()",
+    "options": [
+      {
+        "key": "A",
+        "text": "$\\forall x (\\neg P (x,f (x)) \\vee \\forall zQ (z,f (x)))$"
+      },
+      {
+        "key": "B",
+        "text": "$\\forall x \\forall z (\\neg P (x,f (x)) \\vee Q (z,f (x)))$"
+      },
+      {
+        "key": "C",
+        "text": "$\\forall x \\forall z (\\neg P (x,y) \\vee Q (z,y))$"
+      },
+      {
+        "key": "D",
+        "text": "$\\forall x \\exists f (\\neg P (x,f (x)) \\vee \\forall zQ (z,f (x)))$"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test",
+    "formulas": [
+      {
+        "latex": "\\forall x \\exists y \\forall z (\\neg P (x,y) \\vee Q (z,y))",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/0ba38c50d4a6f6d3d1f044c7f2c47c28.png"
+      },
+      {
+        "latex": "\\forall x (\\neg P (x,f (x)) \\vee \\forall zQ (z,f (x)))",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/5cd108cdec7677c0c32e65fbf2e3e978.png"
+      },
+      {
+        "latex": "\\forall x \\forall z (\\neg P (x,f (x)) \\vee Q (z,f (x)))",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/47b275fe60c6169aa35b7b7ed366958e.png"
+      },
+      {
+        "latex": "\\forall x \\forall z (\\neg P (x,y) \\vee Q (z,y))",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/5dfdba021d05f78a0272440167ea982f.png"
+      },
+      {
+        "latex": "\\forall x \\exists f (\\neg P (x,f (x)) \\vee \\forall zQ (z,f (x)))",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/c635f99ac0386d6f7cf963a4b28c29d5.png"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "chapter": "第三章",
+    "type": "true-false",
+    "question": "谓词公式 $\\forall xP (x) \\wedge \\exists y (\\neg P (y))$ 是恒假公式。",
+    "options": [
+      {
+        "key": "1",
+        "text": "对"
+      },
+      {
+        "key": "2",
+        "text": "错"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test",
+    "formulas": [
+      {
+        "latex": "\\forall xP (x) \\wedge \\exists y (\\neg P (y))",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/c4b0c7aeaa59e3ee711a6fbb3cf0e455.png"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "chapter": "第三章",
+    "type": "true-false",
+    "question": "任意一个谓词公式G与其Skolem范式等价。",
+    "options": [
+      {
+        "key": "1",
+        "text": "对"
+      },
+      {
+        "key": "2",
+        "text": "错"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test"
+  },
+  {
+    "id": 17,
+    "chapter": "第三章",
+    "type": "true-false",
+    "question": "公式G、H等价的充要条件是 $G rightarrow H$ 。",
+    "options": [
+      {
+        "key": "1",
+        "text": "对"
+      },
+      {
+        "key": "2",
+        "text": "错"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test",
+    "formulas": [
+      {
+        "latex": "G rightarrow H",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/e1d60a202c316321b07b59d91da81b73.png"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "chapter": "第三章",
+    "type": "true-false",
+    "question": "在谓词公式中，一个变量只能是自由变量或约束变量中的一种。",
+    "options": [
+      {
+        "key": "1",
+        "text": "对"
+      },
+      {
+        "key": "2",
+        "text": "错"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test"
+  },
+  {
+    "id": 19,
+    "chapter": "第三章",
+    "type": "true-false",
+    "question": "谓词公式 $\\forall xP (x) \\Rightarrow \\exists y (\\neg P (y))$ 。",
+    "options": [
+      {
+        "key": "1",
+        "text": "对"
+      },
+      {
+        "key": "2",
+        "text": "错"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test",
+    "formulas": [
+      {
+        "latex": "\\forall xP (x) \\Rightarrow \\exists y (\\neg P (y))",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/7b408836f64488f56b9eabaccd62e7dc.png"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "chapter": "第三章",
+    "type": "true-false",
+    "question": "设S是所有互不等价的命题公式组成的集合，则S上的蕴涵关系不满足反自反性，但满足反对称性。",
+    "options": [
+      {
+        "key": "1",
+        "text": "对"
+      },
+      {
+        "key": "2",
+        "text": "错"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test"
+  },
+  {
+    "id": 21,
+    "chapter": "第三章",
+    "type": "true-false",
+    "question": "命题公式 $G= (P \\to (Q \\to R)) rightarrow ((P \\wedge Q) \\to R)$ 是恒真公式。",
+    "options": [
+      {
+        "key": "1",
+        "text": "对"
+      },
+      {
+        "key": "2",
+        "text": "错"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test",
+    "formulas": [
+      {
+        "latex": "G= (P \\to (Q \\to R)) rightarrow ((P \\wedge Q) \\to R)",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/b725f36148094d5f0037d0a8caa75b6c.png"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "chapter": "第三章",
+    "type": "true-false",
+    "question": "用于消除存在量词的Skolem函数既包括函数符号又包括常量符号。",
+    "options": [
+      {
+        "key": "1",
+        "text": "对"
+      },
+      {
+        "key": "2",
+        "text": "错"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test"
+  },
+  {
+    "id": 23,
+    "chapter": "第三章",
+    "type": "true-false",
+    "question": "设S是谓词公式G的Skolem范式，若G是可满足的，则S也可满足。",
+    "options": [
+      {
+        "key": "1",
+        "text": "对"
+      },
+      {
+        "key": "2",
+        "text": "错"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test"
+  },
+  {
+    "id": 24,
+    "chapter": "第三章",
+    "type": "true-false",
+    "question": "如果一个谓词逻辑公式是恒真的，则有算法在有限步之内判断这个公式的恒真性。",
+    "options": [
+      {
+        "key": "1",
+        "text": "对"
+      },
+      {
+        "key": "2",
+        "text": "错"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test"
+  },
+  {
+    "id": 25,
+    "chapter": "第三章",
+    "type": "true-false",
+    "question": "任一命题公式的主合取范式不唯一。",
+    "options": [
+      {
+        "key": "1",
+        "text": "对"
+      },
+      {
+        "key": "2",
+        "text": "错"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test"
+  },
+  {
+    "id": 26,
+    "chapter": "第三章",
+    "type": "true-false",
+    "question": "公式 $P \\wedge Q$ 是合取范式，不是析取范式。",
+    "options": [
+      {
+        "key": "1",
+        "text": "对"
+      },
+      {
+        "key": "2",
+        "text": "错"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test",
+    "formulas": [
+      {
+        "latex": "P \\wedge Q",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/86898cb5d47928587dc763fd4b51860a.png"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "chapter": "第三章",
+    "type": "true-false",
+    "question": "所有极大项之合取为恒真公式。",
+    "options": [
+      {
+        "key": "1",
+        "text": "对"
+      },
+      {
+        "key": "2",
+        "text": "错"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test"
+  },
+  {
+    "id": 28,
+    "chapter": "第三章",
+    "type": "true-false",
+    "question": "谓词公式∀x∀y(P(x,y)∨Q(y,z))中，x,y是约束变量，z是自由变量。",
+    "options": [
+      {
+        "key": "1",
+        "text": "对"
+      },
+      {
+        "key": "2",
+        "text": "错"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test"
+  },
+  {
+    "id": 29,
+    "chapter": "第三章",
+    "type": "true-false",
+    "question": "如果 $(P \\wedge Q) \\to \\neg R$ 的真值为0，则 $(\\neg P \\vee R) \\to Q$ 的真值为0。",
+    "options": [
+      {
+        "key": "1",
+        "text": "对"
+      },
+      {
+        "key": "2",
+        "text": "错"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test",
+    "formulas": [
+      {
+        "latex": "(P \\wedge Q) \\to \\neg R",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/59810608bcfe99ff2f895a7b99ed9da8.png"
+      },
+      {
+        "latex": "(\\neg P \\vee R) \\to Q",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/0fd1ff7dc05fd8fe7da614b6ea4704e6.png"
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "chapter": "第三章",
+    "type": "true-false",
+    "question": "设谓词公式 $G= \\forall x (P (x) \\vee Q (x))$ ， $H= \\forall xP (x) \\vee \\forall yQ (y)$ ，则G蕴涵H。",
+    "options": [
+      {
+        "key": "1",
+        "text": "对"
+      },
+      {
+        "key": "2",
+        "text": "错"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test",
+    "formulas": [
+      {
+        "latex": "G= \\forall x (P (x) \\vee Q (x))",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/2b69f96de41df81e2b8fca1135709a49.png"
+      },
+      {
+        "latex": "H= \\forall xP (x) \\vee \\forall yQ (y)",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/43e1463c33766fb97c8bcfa352b80fa9.png"
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "chapter": "第三章",
+    "type": "true-false",
+    "question": "设A，B，C为命题公式，若 $A \\wedge C$ = $B \\wedge C$ ，则A=B。",
+    "options": [
+      {
+        "key": "1",
+        "text": "对"
+      },
+      {
+        "key": "2",
+        "text": "错"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test",
+    "formulas": [
+      {
+        "latex": "A \\wedge C",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/d57e471e8bb99c5c7378cd66c6aeb774.png"
+      },
+      {
+        "latex": "B \\wedge C",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/a3786af6879dc2e54309d28d24a5f325.png"
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "chapter": "第三章",
+    "type": "true-false",
+    "question": "程序语句“If P Then Q Else R”的命题逻辑表示可写做 $(P \\Rightarrow Q) \\vee (\\neg P \\Rightarrow R)$ 。",
+    "options": [
+      {
+        "key": "1",
+        "text": "对"
+      },
+      {
+        "key": "2",
+        "text": "错"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test",
+    "formulas": [
+      {
+        "latex": "(P \\Rightarrow Q) \\vee (\\neg P \\Rightarrow R)",
+        "src": "https://p.ananas.chaoxing.com/star3/origin/ac6d35bd954b6d44e8808aecf7cd226a.png"
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "chapter": "第三章",
+    "type": "single-choice",
+    "question": "如果∀x∃yP(x,y)为真，则∃x∀yP(x,y)的真值为（）",
+    "options": [
+      {
+        "key": "A",
+        "text": "1"
+      },
+      {
+        "key": "B",
+        "text": "0"
+      },
+      {
+        "key": "C",
+        "text": "不确定"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test"
+  },
+  {
+    "id": 34,
+    "chapter": "第三章",
+    "type": "true-false",
+    "question": "∃x(A(x)∧B(x))⇒∃xA(x)∧∃xB(x)",
+    "options": [
+      {
+        "key": "1",
+        "text": "对"
+      },
+      {
+        "key": "2",
+        "text": "错"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test"
+  },
+  {
+    "id": 35,
+    "chapter": "第三章",
+    "type": "true-false",
+    "question": "将自然语句“所有的猫都喜欢吃鱼”转换为谓词逻辑公式，可以得到∀x(猫(x) → 喜欢(x, 吃鱼))。",
+    "options": [
+      {
+        "key": "1",
+        "text": "对"
+      },
+      {
+        "key": "2",
+        "text": "错"
+      }
+    ],
+    "answer": "",
+    "explanation": "",
+    "source": "chaoxing-third-chapter-test"
+  }
+]

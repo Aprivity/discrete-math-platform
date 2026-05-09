@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHeader } from "@/components/PageHeader";
 import { QuestionPractice } from "@/components/QuestionPractice";
-import { getQuestionCategoryBySlug, getQuestionsByCategory, questionCategories } from "@/data/questions";
+import { getQuestionCategoryBySlug, getQuestionsByCategorySlug, questionCategories } from "@/data/questions";
 
 type PracticeChapterPageProps = {
   params: Promise<{
@@ -25,7 +25,7 @@ export default async function PracticeChapterPage({ params }: PracticeChapterPag
     notFound();
   }
 
-  const questions = getQuestionsByCategory(category.label);
+  const questions = getQuestionsByCategorySlug(category.slug);
   const judgeCount = questions.filter((question) => question.type === "judge").length;
   const singleCount = questions.filter((question) => question.type === "single").length;
   const shortCount = questions.filter((question) => question.type === "short").length;

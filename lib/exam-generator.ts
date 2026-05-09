@@ -65,6 +65,7 @@ export function generateExamPaper(options: GenerateExamPaperOptions): GenerateEx
           const category = questionCategories.find((candidate) => candidate.label === question.category);
           return (
             selectedCategorySet.has(question.category) ||
+            selectedCategorySet.has(question.knowledgePointId ?? "") ||
             selectedCategorySet.has(category?.slug ?? "") ||
             category?.aliases.some((alias) => selectedCategorySet.has(alias))
           );

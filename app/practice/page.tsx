@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { PageHeader } from "@/components/PageHeader";
 import { SurfaceCard } from "@/components/SurfaceCard";
-import { getQuestionsByCategory, questionCategories } from "@/data/questions";
+import { getQuestionsByCategorySlug, questionCategories } from "@/data/questions";
 
 export default function PracticePage() {
   return (
@@ -13,7 +13,7 @@ export default function PracticePage() {
       />
       <section className="mx-auto grid max-w-7xl gap-5 px-5 pb-20 sm:px-8 md:grid-cols-2 xl:grid-cols-3">
         {questionCategories.map((category, index) => {
-          const questionCount = getQuestionsByCategory(category.label).length;
+          const questionCount = getQuestionsByCategorySlug(category.slug).length;
 
           return (
             <SurfaceCard key={category.slug} className="group hover:-translate-y-1 dark:hover:border-indigo-300/40">

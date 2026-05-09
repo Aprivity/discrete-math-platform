@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { MathText } from "@/components/MathText";
 import { SurfaceCard } from "@/components/SurfaceCard";
 import { getPaperQuestions } from "@/lib/exam-storage";
 import type { ExamPaper } from "@/types/exam";
@@ -62,7 +63,8 @@ export function ExamResult({ paper }: ExamResultProps) {
         {paperQuestions.map((question, index) => {
           const userAnswer = paper.answers[question.id] ?? "";
           const isShort = question.type === "short";
-          const isCorrect = !isShort && userAnswer === question.answer;
+          const hasStandardAnswer = Boolean(question.answer.trim());
+          const isCorrect = !isShort && hasStandardAnswer && userAnswer === question.answer;
           const hasAnswer = Boolean(userAnswer.trim());
 
           return (
@@ -71,7 +73,9 @@ export function ExamResult({ paper }: ExamResultProps) {
               className={`rounded-lg border p-6 shadow-[0_18px_50px_rgba(120,95,60,0.1)] backdrop-blur-[18px] ${
                 isShort
                   ? "border-[rgba(201,166,107,0.28)] bg-[rgba(255,244,214,0.42)] dark:border-indigo-300/25 dark:bg-indigo-400/10"
-                  : isCorrect
+                  : !hasStandardAnswer
+                    ? "border-[rgba(201,166,107,0.28)] bg-[rgba(255,244,214,0.42)] dark:border-indigo-300/25 dark:bg-indigo-400/10"
+                    : isCorrect
                     ? "border-emerald-300/40 bg-emerald-100/40 dark:border-emerald-300/25 dark:bg-emerald-400/10"
                     : "border-rose-300/40 bg-rose-100/40 dark:border-rose-300/25 dark:bg-rose-400/10"
               }`}
@@ -82,14 +86,18 @@ export function ExamResult({ paper }: ExamResultProps) {
                 </span>
                 <span className="rounded-full bg-white/45 px-3 py-1 text-[#6f665c] dark:bg-white/10 dark:text-slate-300">{question.category}</span>
                 <span className="rounded-full bg-white/45 px-3 py-1 text-[#6f665c] dark:bg-white/10 dark:text-slate-300">
-                  {isShort ? "待自评" : isCorrect ? "正确" : "错误"}
+                  {isShort ? "待自评" : !hasStandardAnswer ? "未录入答案" : isCorrect ? "正确" : "错误"}
                 </span>
               </div>
-              <h3 className="mt-5 whitespace-pre-wrap text-xl font-semibold leading-8 text-[#2f2a24] dark:text-white">{question.title}</h3>
+              <h3 className="mt-5 whitespace-pre-wrap text-xl font-semibold leading-8 text-[#2f2a24] dark:text-white">
+                <MathText>{question.title}</MathText>
+              </h3>
               <div className="mt-5 grid gap-2 text-sm leading-7 text-[#4b4238] dark:text-slate-200">
                 <p>你的答案：{hasAnswer ? userAnswer : "未作答"}</p>
-                <p>正确答案：{question.answer}</p>
-                <p>解析：{question.explanation.trim() || "解析待补充"}</p>
+                <p>正确答案：{hasStandardAnswer ? <MathText>{question.answer}</MathText> : "暂未录入"}</p>
+                <p>
+                  解析：<MathText>{question.explanation.trim() || "解析待补充"}</MathText>
+                </p>
               </div>
             </article>
           );

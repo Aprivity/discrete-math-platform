@@ -1,3 +1,6 @@
+import { chapter3QuestionsWithKnowledgePoint } from "@/data/chapter3Questions";
+import { getKnowledgePointByCategorySlug, getKnowledgePointByName, type KnowledgePointId } from "@/data/knowledgePoints";
+
 export type QuestionType = "single" | "judge" | "short";
 
 export type QuestionDifficulty = "easy" | "medium" | "hard";
@@ -16,21 +19,40 @@ export type QuestionCategory =
 
 export type Question = {
   id: string;
+  sourceQuestionId?: number;
   category: QuestionCategory;
   chapter: string;
   type: QuestionType;
   title: string;
   options?: string[];
+  optionItems?: QuestionOption[];
   answer: string;
   explanation: string;
   difficulty: QuestionDifficulty;
   tags: string[];
+  formulas?: QuestionFormula[];
+  knowledgePointId?: KnowledgePointId;
+  knowledgePointName?: string;
 };
+
+export type QuestionOption = {
+  key: string;
+  text: string;
+  selected?: boolean;
+};
+
+export type QuestionFormula =
+  | string
+  | {
+      latex: string;
+      src?: string;
+    };
 
 export const questionCategories: Array<{
   label: QuestionCategory;
   slug: string;
   aliases: string[];
+  knowledgePointId: KnowledgePointId;
   description: string;
   knowledgeHref: string;
   practiceHref: string;
@@ -39,6 +61,7 @@ export const questionCategories: Array<{
     label: "集合",
     slug: "set",
     aliases: ["sets"],
+    knowledgePointId: "set",
     description: "集合相等、集合运算、幂集、笛卡尔积、基数与可数性。",
     knowledgeHref: "/practice/set/knowledge",
     practiceHref: "/practice/set",
@@ -47,6 +70,7 @@ export const questionCategories: Array<{
     label: "关系",
     slug: "relation",
     aliases: ["relations"],
+    knowledgePointId: "relation",
     description: "二元关系、关系性质、等价关系、偏序关系、Hasse 图与关系复合。",
     knowledgeHref: "/practice/relation/knowledge",
     practiceHref: "/practice/relation",
@@ -55,6 +79,7 @@ export const questionCategories: Array<{
     label: "函数与映射",
     slug: "function",
     aliases: ["functions"],
+    knowledgePointId: "function-mapping",
     description: "映射、单射、满射、双射、复合映射、像集与映射数量。",
     knowledgeHref: "/practice/function/knowledge",
     practiceHref: "/practice/function",
@@ -63,6 +88,7 @@ export const questionCategories: Array<{
     label: "命题逻辑",
     slug: "logic",
     aliases: ["proposition-logic", "propositional-logic"],
+    knowledgePointId: "propositional-logic",
     description: "命题公式、真值表、蕴涵等价、主析取范式与主合取范式。",
     knowledgeHref: "/practice/logic/knowledge",
     practiceHref: "/practice/logic",
@@ -71,6 +97,7 @@ export const questionCategories: Array<{
     label: "谓词逻辑",
     slug: "predicate",
     aliases: ["predicate-logic"],
+    knowledgePointId: "predicate-logic",
     description: "量词、谓词公式、解释、前束范式、Skolem 范式与公式蕴涵。",
     knowledgeHref: "/practice/predicate/knowledge",
     practiceHref: "/practice/predicate",
@@ -79,6 +106,7 @@ export const questionCategories: Array<{
     label: "量词逻辑",
     slug: "quantifier",
     aliases: ["quantifiers"],
+    knowledgePointId: "quantifier-logic",
     description: "包含量词公式、前束范式、Skolem 范式及常见练习题。",
     knowledgeHref: "/practice/quantifier/knowledge",
     practiceHref: "/practice/quantifier",
@@ -87,6 +115,7 @@ export const questionCategories: Array<{
     label: "组合数学",
     slug: "combinatorics",
     aliases: ["combination"],
+    knowledgePointId: "algebra",
     description: "排列、组合、鸽巢原理、容斥原理、递推关系。",
     knowledgeHref: "/practice/combinatorics/knowledge",
     practiceHref: "/practice/combinatorics",
@@ -95,6 +124,7 @@ export const questionCategories: Array<{
     label: "图论",
     slug: "graph",
     aliases: ["graphs", "graph-theory"],
+    knowledgePointId: "graph-theory",
     description: "图、连通性、欧拉图、哈密顿图、最短路径、最小生成树。",
     knowledgeHref: "/practice/graph/knowledge",
     practiceHref: "/practice/graph",
@@ -103,6 +133,7 @@ export const questionCategories: Array<{
     label: "树",
     slug: "tree",
     aliases: ["trees"],
+    knowledgePointId: "tree",
     description: "树的性质、生成树、二叉树、哈夫曼树、深度和高度计算。",
     knowledgeHref: "/practice/tree/knowledge",
     practiceHref: "/practice/tree",
@@ -111,13 +142,14 @@ export const questionCategories: Array<{
     label: "代数结构",
     slug: "algebra",
     aliases: ["algebraic-structure"],
+    knowledgePointId: "combinatorics",
     description: "半群、群、环、域及其基本性质和常见运算。",
     knowledgeHref: "/practice/algebra/knowledge",
     practiceHref: "/practice/algebra",
   },
 ];
 
-export const questions: Question[] = [
+const baseQuestions: Question[] = [
   {
     id: "set-judge-001",
     category: "集合",
@@ -2068,10 +2100,41 @@ export const questions: Question[] = [
   },
 ];
 
+function attachDefaultKnowledgePoint(question: Question): Question {
+  if (question.knowledgePointId) {
+    return question;
+  }
+
+  const knowledgePoint = getKnowledgePointByName(question.category);
+
+  return {
+    ...question,
+    knowledgePointId: knowledgePoint?.id,
+    knowledgePointName: knowledgePoint?.name,
+  };
+}
+
+export const questions: Question[] = [...baseQuestions.map(attachDefaultKnowledgePoint), ...chapter3QuestionsWithKnowledgePoint];
+
 export function getQuestionsByCategory(category: QuestionCategory) {
   return questions.filter((question) => question.category === category);
 }
 
 export function getQuestionCategoryBySlug(slug: string) {
   return questionCategories.find((category) => category.slug === slug || category.aliases.includes(slug));
+}
+
+export function getQuestionsByKnowledgePointId(knowledgePointId: KnowledgePointId) {
+  return questions.filter((question) => question.knowledgePointId === knowledgePointId);
+}
+
+export function getQuestionsByCategorySlug(slug: string) {
+  const category = getQuestionCategoryBySlug(slug);
+  const knowledgePoint = getKnowledgePointByCategorySlug(category?.slug ?? slug);
+
+  if (knowledgePoint) {
+    return getQuestionsByKnowledgePointId(knowledgePoint.id);
+  }
+
+  return category ? getQuestionsByCategory(category.label) : [];
 }

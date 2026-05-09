@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { MathText } from "@/components/MathText";
 import type { Question } from "@/data/questions";
 import { getCurrentUser } from "@/lib/auth";
 import { addStudyRecord, GUEST_USER_ID } from "@/lib/study-records";
@@ -17,6 +18,30 @@ const questionTypeLabels: Record<Question["type"], string> = {
   single: "单选题",
   short: "简答题",
 };
+
+function getOptionValue(question: Question, option: string) {
+  if (question.type === "single") {
+    return option.slice(0, 1);
+  }
+
+  return option;
+}
+
+function getDisplayOptions(question: Question) {
+  if (question.optionItems?.length) {
+    return question.optionItems.map((option) => ({
+      key: option.key,
+      value: option.key,
+      label: `${option.key} ${option.text}`,
+    }));
+  }
+
+  return (question.options ?? []).map((option) => ({
+    key: option,
+    value: getOptionValue(question, option),
+    label: option,
+  }));
+}
 
 function createRecordId() {
   if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
@@ -68,7 +93,7 @@ export function QuestionPractice({ questions }: QuestionPracticeProps) {
       type: question.type,
       userAnswer: selectedAnswer,
       correctAnswer: question.answer,
-      isCorrect: question.type === "short" ? null : selectedAnswer === question.answer,
+      isCorrect: question.type === "short" || !question.answer.trim() ? null : selectedAnswer === question.answer,
       answeredAt: new Date().toISOString(),
     });
   };
@@ -85,8 +110,10 @@ export function QuestionPractice({ questions }: QuestionPracticeProps) {
         const submittedAnswer = submittedAnswers[question.id];
         const isSubmitted = Boolean(submittedAnswer);
         const isShortQuestion = question.type === "short";
-        const isCorrect = !isShortQuestion && submittedAnswer === question.answer;
+        const hasStandardAnswer = Boolean(question.answer.trim());
+        const isCorrect = !isShortQuestion && hasStandardAnswer && submittedAnswer === question.answer;
         const explanation = question.explanation.trim() || "解析待补充";
+        const displayOptions = getDisplayOptions(question);
 
         return (
           <article
@@ -103,10 +130,18 @@ export function QuestionPractice({ questions }: QuestionPracticeProps) {
               <span className="rounded-full bg-[rgba(255,244,214,0.58)] px-3 py-1 text-[#6f665c] dark:bg-indigo-300/15 dark:text-slate-300">
                 {question.difficulty}
               </span>
+              <span className="rounded-full bg-[rgba(255,244,214,0.58)] px-3 py-1 text-[#6f665c] dark:bg-indigo-300/15 dark:text-slate-300">
+                {question.chapter}
+              </span>
+              {question.knowledgePointName ? (
+                <span className="rounded-full bg-[rgba(255,244,214,0.58)] px-3 py-1 text-[#6f665c] dark:bg-indigo-300/15 dark:text-slate-300">
+                  {question.knowledgePointName}
+                </span>
+              ) : null}
             </div>
 
             <h2 className="mt-5 whitespace-pre-wrap text-xl font-semibold leading-8 text-[#2f2a24] dark:text-white">
-              {question.title}
+              <MathText>{question.title}</MathText>
             </h2>
 
             {isShortQuestion ? (
@@ -122,13 +157,13 @@ export function QuestionPractice({ questions }: QuestionPracticeProps) {
               </div>
             ) : (
               <div className="mt-5 grid gap-3">
-                {(question.options ?? []).map((option) => {
-                  const value = question.type === "single" ? option.slice(0, 1) : option;
+                {displayOptions.map((option) => {
+                  const value = option.value;
                   const isSelected = selectedAnswer === value;
 
                   return (
                     <button
-                      key={option}
+                      key={option.key}
                       type="button"
                       onClick={() => chooseAnswer(question.id, value)}
                       className={`rounded-lg border px-4 py-3 text-left text-sm leading-6 transition ${
@@ -137,7 +172,7 @@ export function QuestionPractice({ questions }: QuestionPracticeProps) {
                           : "border-[rgba(190,170,140,0.2)] bg-[rgba(255,252,245,0.42)] text-[#4b4238] hover:border-[rgba(201,166,107,0.36)] hover:bg-[rgba(255,244,214,0.56)] dark:border-white/10 dark:bg-slate-950/25 dark:text-slate-300 dark:hover:border-indigo-300/40 dark:hover:bg-indigo-400/10"
                       }`}
                     >
-                      {option}
+                      <MathText>{option.label}</MathText>
                     </button>
                   );
                 })}
@@ -167,15 +202,23 @@ export function QuestionPractice({ questions }: QuestionPracticeProps) {
                 className={`mt-5 rounded-lg border p-4 text-sm leading-7 ${
                   isShortQuestion
                     ? "border-[rgba(201,166,107,0.28)] bg-[rgba(255,244,214,0.5)] text-[#4b4238] dark:border-indigo-300/25 dark:bg-indigo-400/10 dark:text-slate-200"
-                    : isCorrect
+                    : !hasStandardAnswer
+                      ? "border-[rgba(201,166,107,0.28)] bg-[rgba(255,244,214,0.5)] text-[#4b4238] dark:border-indigo-300/25 dark:bg-indigo-400/10 dark:text-slate-200"
+                      : isCorrect
                       ? "border-emerald-300/40 bg-emerald-100/45 text-emerald-800 dark:border-emerald-300/25 dark:bg-emerald-400/10 dark:text-emerald-200"
                       : "border-rose-300/40 bg-rose-100/45 text-rose-800 dark:border-rose-300/25 dark:bg-rose-400/10 dark:text-rose-200"
                 }`}
               >
-                <p className="font-semibold">{isShortQuestion ? "参考解析" : isCorrect ? "回答正确" : "回答错误"}</p>
+                <p className="font-semibold">
+                  {isShortQuestion ? "参考解析" : !hasStandardAnswer ? "该题暂未录入标准答案" : isCorrect ? "回答正确" : "回答错误"}
+                </p>
                 {isShortQuestion ? <p className="mt-1">你的作答：{submittedAnswer}</p> : null}
-                <p className="mt-1">{isShortQuestion ? "参考答案" : "正确答案"}：{question.answer}</p>
-                <p className="mt-1">解析：{explanation}</p>
+                <p className="mt-1">
+                  {isShortQuestion ? "参考答案" : "正确答案"}：{hasStandardAnswer ? <MathText>{question.answer}</MathText> : "暂未录入"}
+                </p>
+                <p className="mt-1">
+                  解析：<MathText>{explanation}</MathText>
+                </p>
               </div>
             ) : null}
           </article>
